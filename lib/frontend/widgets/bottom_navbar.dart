@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class BottomNavbar extends StatelessWidget {
-  const BottomNavbar({Key? key}) : super(key: key);
+  final Function(int index) onTabSelected;
+  final int selectedIndex;
+
+  const BottomNavbar({
+    Key? key,
+    required this.onTabSelected,
+    this.selectedIndex = 0,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +19,10 @@ class BottomNavbar extends StatelessWidget {
         : Colors.black;
 
     return FlashyTabBar(
+      selectedIndex: selectedIndex,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       showElevation: false,
-      onItemSelected: (value) {},
+      onItemSelected: onTabSelected,
       items: [
         FlashyTabBarItem(
           activeColor: Theme.of(context).primaryColor,

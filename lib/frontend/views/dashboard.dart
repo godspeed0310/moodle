@@ -1,30 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:moodle/backend/viewmodels/dashboard_model.dart';
+import 'package:moodle/frontend/views/tabs/account.dart';
+import 'package:moodle/frontend/views/tabs/home.dart';
+import 'package:moodle/frontend/views/tabs/notifications.dart';
+import 'package:moodle/frontend/views/tabs/search.dart';
 import 'package:moodle/frontend/widgets/bottom_navbar.dart';
-import 'package:moodle/frontend/widgets/category_tile.dart';
 import 'package:moodle/frontend/widgets/default_system_overlay.dart';
-import 'package:moodle/frontend/widgets/event_card.dart';
-import 'package:moodle/frontend/widgets/home_header.dart';
-import 'package:moodle/frontend/widgets/live_updates.dart';
-import 'package:sizer/sizer.dart';
+import 'package:stacked/stacked.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const DefaultSystemOverlay(
-      scaffold: Scaffold(
-        body: CustomScrollView(
-          physics: BouncingScrollPhysics(),
-          slivers: [
-            HomeHeader(),
-            EventCard(),
-            LiveUpdates(),
-          ],
-        ),
-        bottomNavigationBar: BottomNavbar(),
-      ),
+    return ViewModelBuilder<DashboardModel>.reactive(
+      viewModelBuilder: () => DashboardModel(),
+      builder: (context, model, child) {
+        return DefaultSystemOverlay(
+          scaffold: Scaffold(
+            body: PageView(
+              controller: model.pageController,
+              physics: const NeverScrollableScrollPhysics(),
+              children: const [
+                HomeTab(),
+                SearchTab(),
+                NotificationsTab(),
+                AccountTab(),
+              ],
+            ),
+            bottomNavigationBar: BottomNavbar(
+              onTabSelected: (index) => model.setCurrentIndex(index),
+              selectedIndex: model.currentIndex,
+            ),
+          ),
+        );
+      },
     );
   }
 }
