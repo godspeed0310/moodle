@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moodle/frontend/views/attendance.dart';
+import 'package:moodle/frontend/views/calendar.dart';
 import 'package:moodle/frontend/views/fees.dart';
 import 'package:moodle/frontend/views/homework.dart';
 import 'package:moodle/frontend/views/multimedia.dart';
@@ -45,10 +47,12 @@ class SearchTab extends StatelessWidget {
                 CategoryTile(
                   icon: 'assets/icons/attendance.svg',
                   label: 'Attendance',
+                  child: AttendanceView(),
                 ),
                 CategoryTile(
                   icon: 'assets/icons/calendar.svg',
                   label: 'Calendar',
+                  child: CalendarView(),
                 ),
                 CategoryTile(
                   icon: 'assets/icons/fees.svg',
