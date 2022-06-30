@@ -23,7 +23,9 @@ class DashboardView extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 const HomeTab(),
-                const SearchTab(),
+                SearchTab(
+                  onBack: () => model.goBack(),
+                ),
                 NotificationsTab(
                   onBack: () => model.goBack(),
                 ),
