@@ -10,4 +10,10 @@ class DashboardModel extends BaseViewModel {
     pageController.jumpToPage(index);
     notifyListeners();
   }
+
+  void goBack() {
+    currentIndex = 0;
+    pageController.jumpToPage(0);
+    notifyListeners();
+  }
 }

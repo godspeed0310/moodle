@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         return ThemeBuilder(
           lightTheme: Themes.light,
           darkTheme: Themes.dark,
-          defaultThemeMode: ThemeMode.light,
+          defaultThemeMode: ThemeMode.system,
           builder: (context, lightTheme, darkTheme, themeMode) {
             return MaterialApp(
               title: 'Moodle',

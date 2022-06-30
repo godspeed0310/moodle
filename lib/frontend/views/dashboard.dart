@@ -21,11 +21,13 @@ class DashboardView extends StatelessWidget {
             body: PageView(
               controller: model.pageController,
               physics: const NeverScrollableScrollPhysics(),
-              children: const [
-                HomeTab(),
-                SearchTab(),
-                NotificationsTab(),
-                AccountTab(),
+              children: [
+                const HomeTab(),
+                const SearchTab(),
+                const NotificationsTab(),
+                AccountTab(
+                  onBack: () => model.goBack(),
+                ),
               ],
             ),
             bottomNavigationBar: BottomNavbar(
