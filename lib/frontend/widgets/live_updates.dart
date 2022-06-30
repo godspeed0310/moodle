@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moodle/frontend/views/fees.dart';
+import 'package:moodle/frontend/views/homework.dart';
+import 'package:moodle/frontend/views/multimedia.dart';
 import 'package:moodle/frontend/widgets/category_tile.dart';
 import 'package:sizer/sizer.dart';
 
@@ -32,6 +35,7 @@ class LiveUpdates extends StatelessWidget {
                 const CategoryTile(
                   icon: 'assets/icons/homework.svg',
                   label: 'Homework',
+                  child: HomeworkView(),
                 ),
                 SizedBox(
                   width: 3.6.w,
@@ -41,6 +45,7 @@ class LiveUpdates extends StatelessWidget {
                     icon: 'assets/icons/fees.svg',
                     label: 'Fees',
                     size: Size(0, 34.72.w),
+                    child: const FeesView(),
                   ),
                 ),
               ],
@@ -51,10 +56,8 @@ class LiveUpdates extends StatelessWidget {
             CategoryTile(
               icon: 'assets/icons/multimedia.svg',
               label: 'Multimedia',
-              size: Size(
-                86.11.w,
-                34.72.w,
-              ),
+              size: Size(86.11.w, 34.72.w),
+              child: const MultimediaView(),
             ),
           ],
         ),
