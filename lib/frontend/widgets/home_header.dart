@@ -1,7 +1,9 @@
+import 'package:animations/animations.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:moodle/frontend/views/calendar.dart';
 import 'package:sizer/sizer.dart';
 
 class HomeHeader extends StatelessWidget {
@@ -23,20 +25,30 @@ class HomeHeader extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(
-              width: 15.55.w,
-              height: 15.55.w,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: adaptiveColor.withOpacity(0.5),
-                ),
-              ),
-              child: const Center(
-                child: Icon(
-                  EvaIcons.calendarOutline,
-                ),
-              ),
+            OpenContainer(
+              openElevation: 0,
+              closedElevation: 0,
+              closedColor: Colors.transparent,
+              openColor: Colors.transparent,
+              middleColor: Colors.transparent,
+              closedBuilder: (context, _) {
+                return Container(
+                  width: 15.55.w,
+                  height: 15.55.w,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: adaptiveColor.withOpacity(0.5),
+                    ),
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      EvaIcons.calendarOutline,
+                    ),
+                  ),
+                );
+              },
+              openBuilder: (context, _) => const CalendarView(),
             ),
             SizedBox(
               width: 4.44.w,
