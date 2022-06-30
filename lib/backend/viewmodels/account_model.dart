@@ -13,4 +13,8 @@ class AccountModel extends BaseViewModel {
   openAboutApp() {
     _navigationService.navigateTo(Routes.aboutApp);
   }
+
+  openSupport() {
+    _navigationService.navigateTo(Routes.supportView);
+  }
 }

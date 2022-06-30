@@ -13,15 +13,18 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../frontend/views/about_app.dart';
 import '../../frontend/views/about_school.dart';
 import '../../frontend/views/dashboard.dart';
+import '../../frontend/views/support.dart';
 
 class Routes {
   static const String dashboardView = '/';
   static const String aboutSchool = '/about-school';
   static const String aboutApp = '/about-app';
+  static const String supportView = '/support-view';
   static const all = <String>{
     dashboardView,
     aboutSchool,
     aboutApp,
+    supportView,
   };
 }
 
@@ -32,6 +35,7 @@ class StackedRouter extends RouterBase {
     RouteDef(Routes.dashboardView, page: DashboardView),
     RouteDef(Routes.aboutSchool, page: AboutSchool),
     RouteDef(Routes.aboutApp, page: AboutApp),
+    RouteDef(Routes.supportView, page: SupportView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -51,6 +55,12 @@ class StackedRouter extends RouterBase {
     AboutApp: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const AboutApp(),
+        settings: data,
+      );
+    },
+    SupportView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const SupportView(),
         settings: data,
       );
     },
@@ -103,6 +113,22 @@ extension NavigatorStateExtension on NavigationService {
   }) async {
     return navigateTo(
       Routes.aboutApp,
+      id: routerId,
+      preventDuplicates: preventDuplicates,
+      parameters: parameters,
+      transition: transition,
+    );
+  }
+
+  Future<dynamic> navigateToSupportView({
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo(
+      Routes.supportView,
       id: routerId,
       preventDuplicates: preventDuplicates,
       parameters: parameters,

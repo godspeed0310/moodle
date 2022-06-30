@@ -68,7 +68,9 @@ class AccountTab extends StatelessWidget {
                                   ? () => model.openAbout()
                                   : index == 1
                                       ? () => model.openAboutApp()
-                                      : () {},
+                                      : index == 4
+                                          ? () => model.openSupport()
+                                          : () {},
                               contentPadding: EdgeInsets.symmetric(
                                 vertical: 1.h,
                                 horizontal: 5.w,
