@@ -10,15 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
+import '../../frontend/views/about_app.dart';
 import '../../frontend/views/about_school.dart';
 import '../../frontend/views/dashboard.dart';
 
 class Routes {
   static const String dashboardView = '/';
   static const String aboutSchool = '/about-school';
+  static const String aboutApp = '/about-app';
   static const all = <String>{
     dashboardView,
     aboutSchool,
+    aboutApp,
   };
 }
 
@@ -28,6 +31,7 @@ class StackedRouter extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.dashboardView, page: DashboardView),
     RouteDef(Routes.aboutSchool, page: AboutSchool),
+    RouteDef(Routes.aboutApp, page: AboutApp),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
@@ -41,6 +45,12 @@ class StackedRouter extends RouterBase {
     AboutSchool: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const AboutSchool(),
+        settings: data,
+      );
+    },
+    AboutApp: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => const AboutApp(),
         settings: data,
       );
     },
@@ -77,6 +87,22 @@ extension NavigatorStateExtension on NavigationService {
   }) async {
     return navigateTo(
       Routes.aboutSchool,
+      id: routerId,
+      preventDuplicates: preventDuplicates,
+      parameters: parameters,
+      transition: transition,
+    );
+  }
+
+  Future<dynamic> navigateToAboutApp({
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo(
+      Routes.aboutApp,
       id: routerId,
       preventDuplicates: preventDuplicates,
       parameters: parameters,

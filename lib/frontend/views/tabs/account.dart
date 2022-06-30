@@ -64,8 +64,11 @@ class AccountTab extends StatelessWidget {
                             final Setting setting = settings[index];
 
                             return ListTile(
-                              onTap:
-                                  index == 0 ? () => model.openAbout() : () {},
+                              onTap: index == 0
+                                  ? () => model.openAbout()
+                                  : index == 1
+                                      ? () => model.openAboutApp()
+                                      : () {},
                               contentPadding: EdgeInsets.symmetric(
                                 vertical: 1.h,
                                 horizontal: 5.w,
