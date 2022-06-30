@@ -6,6 +6,7 @@ import 'package:moodle/backend/viewmodels/account_model.dart';
 import 'package:moodle/frontend/widgets/custom_appbar.dart';
 import 'package:moodle/frontend/widgets/default_system_overlay.dart';
 import 'package:moodle/frontend/widgets/profile_header.dart';
+import 'package:moodle/frontend/widgets/theme_switcher.dart';
 import 'package:sizer/sizer.dart';
 import 'package:stacked/stacked.dart';
 
@@ -37,6 +38,9 @@ class AccountTab extends StatelessWidget {
                 ),
                 onPressed: onBack,
               ),
+              actions: const [
+                ThemeSwitcher(),
+              ],
             ),
             body: CustomScrollView(
               physics: const BouncingScrollPhysics(),
