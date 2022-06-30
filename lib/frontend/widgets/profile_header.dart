@@ -36,7 +36,7 @@ class ProfileHeader extends StatelessWidget {
                       'Pratibha Yadav',
                       style: GoogleFonts.quicksand(
                         fontWeight: FontWeight.w500,
-                        fontSize: 13.5.sp,
+                        fontSize: 15.sp,
                       ),
                     ),
                     Chip(
