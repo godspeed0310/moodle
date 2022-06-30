@@ -5,6 +5,7 @@ import 'package:moodle/backend/models/homework.dart';
 import 'package:moodle/backend/viewmodels/homework_model.dart';
 import 'package:moodle/frontend/widgets/custom_appbar.dart';
 import 'package:moodle/frontend/widgets/default_system_overlay.dart';
+import 'package:moodle/frontend/widgets/homework_checkbox.dart';
 import 'package:sizer/sizer.dart';
 import 'package:stacked/stacked.dart';
 
@@ -48,24 +49,8 @@ class HomeworkView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final Homework homework = homeworks[index];
 
-                        return CheckboxListTile(
-                          checkboxShape: const CircleBorder(),
-                          value: homework.isDone,
-                          title: Text(
-                            homework.title,
-                            style: GoogleFonts.quicksand(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 10.5.sp,
-                            ),
-                          ),
-                          subtitle: Text(
-                            '${homework.subject.name} / ${homework.date}',
-                            style: GoogleFonts.quicksand(
-                              fontSize: 10.5.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          controlAffinity: ListTileControlAffinity.leading,
+                        return HomeworkCheckbox(
+                          homework: homework,
                           onChanged: (value) => model.updateCompleted(homework),
                         );
                       },
@@ -96,24 +81,8 @@ class HomeworkView extends StatelessWidget {
                       itemBuilder: (context, index) {
                         final Homework homework = pasthomeworks[index];
 
-                        return CheckboxListTile(
-                          checkboxShape: const CircleBorder(),
-                          value: homework.isDone,
-                          title: Text(
-                            homework.title,
-                            style: GoogleFonts.quicksand(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 10.5.sp,
-                            ),
-                          ),
-                          subtitle: Text(
-                            '${homework.subject.name} / ${homework.date}',
-                            style: GoogleFonts.quicksand(
-                              fontSize: 10.5.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          controlAffinity: ListTileControlAffinity.leading,
+                        return HomeworkCheckbox(
+                          homework: homework,
                           onChanged: (value) => model.updateCompleted(homework),
                         );
                       },
