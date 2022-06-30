@@ -31,6 +31,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       iconTheme: IconThemeData(color: adaptiveColor),
       foregroundColor: adaptiveColor,
+      actions: actions,
+      leading: leading,
+      actionsIconTheme: IconThemeData(color: adaptiveColor),
       centerTitle: centerTitle,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       systemOverlayStyle: SystemUiOverlayStyle(

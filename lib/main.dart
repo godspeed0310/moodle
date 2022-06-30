@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodle/backend/app/app.locator.dart';
 import 'package:moodle/backend/app/app.router.dart';
 import 'package:moodle/frontend/shared/shared_constants.dart';
 import 'package:sizer/sizer.dart';
@@ -7,6 +8,7 @@ import 'package:stacked_themes/stacked_themes.dart';
 
 void main() async {
   await ThemeManager.initialise();
+  await setupLocator();
   runApp(const MyApp());
 }
 
