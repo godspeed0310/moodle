@@ -1,5 +1,6 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:moodle/backend/viewmodels/support_model.dart';
 import 'package:moodle/frontend/widgets/custom_appbar.dart';
 import 'package:moodle/frontend/widgets/widgets.dart';
@@ -29,9 +30,17 @@ class SupportView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
               children: [
                 DropdownButtonFormField<String>(
+                  style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 10.5.sp,
+                  ),
                   decoration: InputDecoration(
                     fillColor: Colors.transparent,
                     hintText: 'Select Type *',
+                    hintStyle: GoogleFonts.quicksand(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 10.5.sp,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(3.33.w),
                     ),
@@ -51,6 +60,10 @@ class SupportView extends StatelessWidget {
                   height: 5.h,
                 ),
                 TextField(
+                  style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 10.5.sp,
+                  ),
                   decoration: InputDecoration(
                     fillColor: Colors.transparent,
                     border: OutlineInputBorder(
@@ -59,7 +72,11 @@ class SupportView extends StatelessWidget {
                         color: adaptiveColor.withOpacity(0.5),
                       ),
                     ),
-                    labelText: 'Subject *',
+                    hintText: 'Subject *',
+                    hintStyle: GoogleFonts.quicksand(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 10.5.sp,
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -69,9 +86,17 @@ class SupportView extends StatelessWidget {
                   minLines: 7,
                   maxLines: 15,
                   textAlign: TextAlign.start,
+                  style: GoogleFonts.quicksand(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 10.5.sp,
+                  ),
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: 'Description *',
+                    hintStyle: GoogleFonts.quicksand(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 10.5.sp,
+                    ),
                     fillColor: Colors.transparent,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(3.33.w),
