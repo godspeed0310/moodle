@@ -24,7 +24,9 @@ class DashboardView extends StatelessWidget {
               children: [
                 const HomeTab(),
                 const SearchTab(),
-                const NotificationsTab(),
+                NotificationsTab(
+                  onBack: () => model.goBack(),
+                ),
                 AccountTab(
                   onBack: () => model.goBack(),
                 ),

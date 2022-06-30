@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moodle/backend/data/events_data.dart';
 import 'package:moodle/frontend/widgets/widgets.dart';
 
 class HomeTab extends StatelessWidget {
@@ -6,12 +7,16 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      physics: BouncingScrollPhysics(),
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
-        HomeHeader(),
-        EventCard(),
-        LiveUpdates(),
+        const HomeHeader(),
+        SliverToBoxAdapter(
+          child: EventCard(
+            event: events[0],
+          ),
+        ),
+        const LiveUpdates(),
       ],
     );
   }
